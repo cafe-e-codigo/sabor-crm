@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebResourcesPaths">
+    <contentEntries>
+      <entry url="file://$PROJECT_DIR$">
+        <entryData>
+          <resourceRoots>
+            <path value="file://$PROJECT_DIR$/.annotations" />
+            <path value="file://$PROJECT_DIR$" />
+            <path value="file://$PROJECT_DIR$/.idea" />
+            <path value="file://$PROJECT_DIR$/coverage" />
+            <path value="file://$PROJECT_DIR$/src" />
+            <path value="file://$PROJECT_DIR$/src/Application" />
+            <path value="file://$PROJECT_DIR$/src/Application/Command" />
+            <path value="file://$PROJECT_DIR$/src/Application/Handlers" />
+            <path value="file://$PROJECT_DIR$/src/Application/Mediator" />
+            <path value="file://$PROJECT_DIR$/src/Application/Repository" />
+            <path value="file://$PROJECT_DIR$/src/Application/UseCase" />
+            <path value="file://$PROJECT_DIR$/src/Application/UseCase/Restaurant" />
+            <path value="file://$PROJECT_DIR$/src/Application/UseCase/Stock" />
+            <path value="file://$PROJECT_DIR$/src/Domain" />
+            <path value="file://$PROJECT_DIR$/src/Domain/Entitity" />
+            <path value="file://$PROJECT_DIR$/src/Domain/ValueObject" />
+            <path value="file://$PROJECT_DIR$/src/Infra" />
+            <path value="file://$PROJECT_DIR$/src/Infra/InMemoryRepository" />
+            <path value="file://$PROJECT_DIR$/test" />
+            <path value="file://$PROJECT_DIR$/test/Integration" />
+            <path value="file://$PROJECT_DIR$/test/Unit" />
+            <path value="file://$PROJECT_DIR$/src/Application/UseCase/Product" />
+            <path value="file://$PROJECT_DIR$/coverage/lcov-report" />
+            <path value="file://$PROJECT_DIR$/src/Domain/Servico" />
+            <path value="file://$PROJECT_DIR$/src/Domain/Service" />
+            <path value="file://$PROJECT_DIR$/src/Domain/Strategy" />
+          </resourceRoots>
+        </entryData>
+      </entry>
+    </contentEntries>
+  </component>
+</project>
