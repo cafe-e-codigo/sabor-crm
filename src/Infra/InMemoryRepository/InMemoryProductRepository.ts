@@ -24,6 +24,7 @@ export class InMemoryProductRepository implements ProductRepository {
       purchase_date: product.purchaseDate,
       status: product.status,
       costPrice: product.costPrice,
+      salePrice: product.salePrice,
     });
   }
 
@@ -47,6 +48,7 @@ export class InMemoryProductRepository implements ProductRepository {
           productData.purchase_date,
           productData.status,
           productsData.costPrice,
+          productData.salePrice,
         ),
       );
     }
@@ -73,6 +75,7 @@ export class InMemoryProductRepository implements ProductRepository {
           productData.purchase_date,
           productData.status,
           productData.costPrice,
+          productData.salePrice,
         ),
       );
     }
@@ -96,6 +99,7 @@ export class InMemoryProductRepository implements ProductRepository {
       productData.purchase_date,
       productData.status,
       productData.constPrice,
+      productData.salePrice,
     );
   }
 
@@ -118,6 +122,7 @@ export class InMemoryProductRepository implements ProductRepository {
           productData.purchase_date,
           productData.status,
           productData.costPrice,
+          productData.salePrice,
         ),
       );
     }

@@ -17,6 +17,7 @@ describe('[Unit]: Criação de um comando pra criação e edição de um produto
 	  purchaseDate: String(faker.date.soon()),
 	  status: 'active',
 	  costPrice: faker.commerce.price(),
+		percentageApplied: 90,
 	})).toBeDefined();
   });
 
@@ -35,6 +36,7 @@ describe('[Unit]: Criação de um comando pra criação e edição de um produto
 	  purchaseDate: String(faker.date.soon()),
 	  status: 'active',
 	  costPrice: faker.commerce.price(),
+		percentageApplied: 90,
 	})).toThrow(new Error('Invalid restaurantId'));
   });
 
@@ -53,6 +55,7 @@ describe('[Unit]: Criação de um comando pra criação e edição de um produto
 	  purchaseDate: String(faker.date.soon()),
 	  status: 'active',
 	  costPrice: faker.commerce.price(),
+		percentageApplied: 90,
 	})).toThrow(new Error('Invalid stockId'));
   });
 
@@ -71,6 +74,7 @@ describe('[Unit]: Criação de um comando pra criação e edição de um produto
 	  purchaseDate: String(faker.date.soon()),
 	  status: 'active',
 	  costPrice: faker.commerce.price(),
+		percentageApplied: 90,
 	})).toThrow(new Error('Invalid title'));
   });
 
@@ -89,6 +93,7 @@ describe('[Unit]: Criação de um comando pra criação e edição de um produto
 	  purchaseDate: String(faker.date.soon()),
 	  status: 'active',
 	  costPrice: faker.commerce.price(),
+		percentageApplied: 90,
 	})).toThrow(new Error('Invalid internalCode'));
   });
 });

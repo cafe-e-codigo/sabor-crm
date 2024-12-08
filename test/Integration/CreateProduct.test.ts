@@ -20,7 +20,8 @@ describe('[Integration]: Criação de produtos', (): void => {
 	  dimensionsAndWeight: '', // Altura X Largura X profundidade X Peso
 	  purchaseDate: String(faker.date.soon()), // Data da compra
 	  status: 'active', // Status do produto,
-	  costPrice: faker.commerce.price(), // Preço de custo
+	  costPrice: '7.7', // Preço de custo
+		percentageApplied: 90, // Porcentagem aplicada
 	});
 
 	//Criação do Repository e execução do UseCase de criação de um produto.
@@ -44,5 +45,6 @@ describe('[Integration]: Criação de produtos', (): void => {
 	expect(product[0].purchaseDate).toEqual(inputCreateProduct.params.purchaseDate);
 	expect(product[0].status).toEqual(inputCreateProduct.params.status);
 	expect(product[0].costPrice).toEqual(parseFloat(inputCreateProduct.params.costPrice));
+	expect(product[0].salePrice).toEqual(14.63);
   });
 });

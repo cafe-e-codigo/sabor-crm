@@ -1,5 +1,6 @@
 import { CreateProductCommand } from '../../Application/Command/CreateProductCommand';
 import * as crypto from 'node:crypto';
+import { CalculateSalePrice } from '../Service/CalculateSalePrice';
 
 export class Product {
   private constructor(
@@ -17,10 +18,15 @@ export class Product {
     private readonly _purchaseDate: string,
     private readonly _status: string,
     private readonly _costPrice: number,
+    private readonly _percentage: number,
   ) {}
 
   static create(command: CreateProductCommand): Product {
     const id: string = crypto.randomUUID();
+    const salePrice: number = new CalculateSalePrice().calculate({
+      costPrice: parseFloat(command.params.costPrice),
+      percentageApplied: command.params.percentageApplied,
+    });
     return new Product(
       id,
       command.params.restaurantId,
@@ -36,6 +42,7 @@ export class Product {
       command.params.purchaseDate,
       command.params.status,
       parseFloat(command.params.costPrice),
+      salePrice,
     );
   }
 
@@ -54,6 +61,7 @@ export class Product {
     purchaseDate: string,
     status: string,
     costPrice: number,
+    saleApplied: number,
   ): Product {
     return new Product(
       id,
@@ -70,6 +78,7 @@ export class Product {
       purchaseDate,
       status,
       costPrice,
+      saleApplied,
     );
   }
 
@@ -127,5 +136,9 @@ export class Product {
 
   get costPrice(): number {
     return this._costPrice;
+  }
+
+  get salePrice(): number {
+    return this._percentage;
   }
 }

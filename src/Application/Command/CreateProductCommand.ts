@@ -14,6 +14,7 @@ export class CreateProductCommand {
       purchaseDate: string;
       status: string;
       costPrice: string;
+      percentageApplied: number;
     },
   ) {
     if (!params.restaurantId) throw new Error('Invalid restaurantId');
