@@ -1,6 +1,3 @@
 export class CreateStockCommand {
-	constructor(
-		readonly restaurantId: string
-	) {
-	}
+  constructor(readonly restaurantId: string) {}
 }

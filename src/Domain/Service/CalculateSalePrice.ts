@@ -1,8 +1,7 @@
 export class CalculateSalePrice {
-  constructor() {
-  }
+  constructor() {}
 
-  calculate(infoProduct: {costPrice: number, percentageApplied: number}): number {
-	return 0
+  calculate(infoProduct: { costPrice: number; percentageApplied: number }): number {
+    return 0;
   }
 }

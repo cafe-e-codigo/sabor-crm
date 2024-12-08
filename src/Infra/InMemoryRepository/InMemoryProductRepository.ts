@@ -1,14 +1,14 @@
-import {ProductRepository} from "../../Application/Repository/ProductRepository";
-import {Product} from "../../Domain/Entitity/Product";
+import { ProductRepository } from '../../Application/Repository/ProductRepository';
+import { Product } from '../../Domain/Entitity/Product';
 
-export class InMemoryProductRepository implements ProductRepository{
-	private readonly products: any;
+export class InMemoryProductRepository implements ProductRepository {
+  private readonly products: any;
 
-	constructor() {
-		this.products = [];
-	}
+  constructor() {
+    this.products = [];
+  }
 
-	async save(product: Product): Promise<void> {
+  async save(product: Product): Promise<void> {
     this.products.push({
       id: product.id,
       restaurant_id: product.restaurantId,
@@ -23,104 +23,104 @@ export class InMemoryProductRepository implements ProductRepository{
       dimensions_and_weight: product.dimensionsAndWeight,
       purchase_date: product.purchaseDate,
       status: product.status,
-	  	costPrice: product.costPrice
+      costPrice: product.costPrice,
     });
   }
 
   async findByRestaurant(restaurantId: string): Promise<Product[]> {
-	  const productsData: any = this.products.filter((product: any) => product.restaurant_id === restaurantId);
-	  const products: any = [];
-	  for (const productData of productsData) {
-			products.push(
-				Product.restore(
-				productData.id,
-				productData.restaurant_id,
-				productData.stock_id,
-				productData.title,
-				productData.sku,
-				productData.internal_code,
-				productData.description,
-				productData.supplier,
-				productData.uom,
-				productData.expiration_date,
-				productData.dimensions_and_weight,
-				productData.purchase_date,
-				productData.status,
-				productsData.costPrice
-				)
-			);
-	  }
-		return products;
-	}
+    const productsData: any = this.products.filter((product: any) => product.restaurant_id === restaurantId);
+    const products: any = [];
+    for (const productData of productsData) {
+      products.push(
+        Product.restore(
+          productData.id,
+          productData.restaurant_id,
+          productData.stock_id,
+          productData.title,
+          productData.sku,
+          productData.internal_code,
+          productData.description,
+          productData.supplier,
+          productData.uom,
+          productData.expiration_date,
+          productData.dimensions_and_weight,
+          productData.purchase_date,
+          productData.status,
+          productsData.costPrice,
+        ),
+      );
+    }
+    return products;
+  }
 
   async findByStock(stockId: string): Promise<Product[]> {
-	const productsData: any = this.products.filter((product: any) => product.stock_id === stockId);
-	const products: any = [];
-	for (const productData of productsData) {
-	  products.push(
-			Product.restore(
-				productData.id,
-				productData.restaurant_id,
-				productData.stock_id,
-				productData.title,
-				productData.sku,
-				productData.internal_code,
-				productData.description,
-				productData.supplier,
-				productData.uom,
-				productData.expiration_date,
-				productData.dimensions_and_weight,
-				productData.purchase_date,
-				productData.status,
-				productData.costPrice
-			)
-	  );
-	}
-	return products;
+    const productsData: any = this.products.filter((product: any) => product.stock_id === stockId);
+    const products: any = [];
+    for (const productData of productsData) {
+      products.push(
+        Product.restore(
+          productData.id,
+          productData.restaurant_id,
+          productData.stock_id,
+          productData.title,
+          productData.sku,
+          productData.internal_code,
+          productData.description,
+          productData.supplier,
+          productData.uom,
+          productData.expiration_date,
+          productData.dimensions_and_weight,
+          productData.purchase_date,
+          productData.status,
+          productData.costPrice,
+        ),
+      );
+    }
+    return products;
   }
 
   async find(id: string): Promise<Product> {
-		const productData: any = this.products.filter((product: any) => product.id === id)[0];
-		return Product.restore(
-			productData.id,
-			productData.restaurant_id,
-			productData.stock_id,
-			productData.title,
-			productData.sku,
-			productData.internal_code,
-			productData.description,
-			productData.supplier,
-			productData.uom,
-			productData.expiration_date,
-			productData.dimensions_and_weight,
-			productData.purchase_date,
-			productData.status,
-			productData.constPrice
-		);
+    const productData: any = this.products.filter((product: any) => product.id === id)[0];
+    return Product.restore(
+      productData.id,
+      productData.restaurant_id,
+      productData.stock_id,
+      productData.title,
+      productData.sku,
+      productData.internal_code,
+      productData.description,
+      productData.supplier,
+      productData.uom,
+      productData.expiration_date,
+      productData.dimensions_and_weight,
+      productData.purchase_date,
+      productData.status,
+      productData.constPrice,
+    );
   }
 
   async findAll(): Promise<Product[]> {
-		const products: any = [];
-		for (const productData of this.products) {
-			products.push(
-				Product.restore(
-					productData.id,
-					productData.restaurant_id,
-					productData.stock_id,
-					productData.title,
-					productData.sku,
-					productData.internal_code,
-					productData.description,
-					productData.supplier,
-					productData.uom,
-					productData.expiration_date,
-					productData.dimensions_and_weight,
-					productData.purchase_date,
-					productData.status,
-					productData.costPrice
-				)
-			);
-		}
-	return products;
+    const products: any = [];
+    for (const productData of this.products) {
+      products.push(
+        Product.restore(
+          productData.id,
+          productData.restaurant_id,
+          productData.stock_id,
+          productData.title,
+          productData.sku,
+          productData.internal_code,
+          productData.description,
+          productData.supplier,
+          productData.uom,
+          productData.expiration_date,
+          productData.dimensions_and_weight,
+          productData.purchase_date,
+          productData.status,
+          productData.costPrice,
+        ),
+      );
+    }
+    return products;
   }
 }

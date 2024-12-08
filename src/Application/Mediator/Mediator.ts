@@ -1,15 +1,15 @@
-import {Handler} from "./Handler";
+import { Handler } from './Handler';
 
 export class Mediator {
-	private handlers: Map<string, Handler<any, any>> = new Map();
+  private handlers: Map<string, Handler<any, any>> = new Map();
 
-	register<TCommand, TResult>(commandName: string, handler: Handler<TCommand, TResult>): void {
-		this.handlers.set(commandName, handler);
-	}
+  register<TCommand, TResult>(commandName: string, handler: Handler<TCommand, TResult>): void {
+    this.handlers.set(commandName, handler);
+  }
 
-	async send<TCommand, TResult>(command: TCommand): Promise<TResult>{
-		const handler = this.handlers.get((command as any).constructor.name) as Handler<TCommand, TResult>;
-		if(!handler) throw new Error(`No handler registered for command: ${(command as any).constructor.name}`);
-		return await handler.handle(command);
-	}
+  async send<TCommand, TResult>(command: TCommand): Promise<TResult> {
+    const handler = this.handlers.get((command as string).constructor.name) as Handler<TCommand, TResult>;
+    if (!handler) throw new Error(`No handler registered for command: ${(command as string).constructor.name}`);
+    return await handler.handle(command);
+  }
 }
