@@ -41,20 +41,20 @@ export class Product {
   }
 
   static restore(
-	id: string,
-	restaurantId: string,
-	stockId: string,
-	title: string,
-	sku: string,
-	internalCode: string,
-	description: string,
-	supplier: string,
-	UoM: string,
-	expirationDate: string,
-	dimensionsAndWeight: string,
-	purchaseDate: string,
-	status: string,
-	costPrice: number
+		id: string,
+		restaurantId: string,
+		stockId: string,
+		title: string,
+		sku: string,
+		internalCode: string,
+		description: string,
+		supplier: string,
+		UoM: string,
+		expirationDate: string,
+		dimensionsAndWeight: string,
+		purchaseDate: string,
+		status: string,
+		costPrice: number
   ): Product {
 	return new Product(
 	  id,

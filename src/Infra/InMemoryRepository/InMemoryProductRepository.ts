@@ -23,7 +23,7 @@ export class InMemoryProductRepository implements ProductRepository{
       dimensions_and_weight: product.dimensionsAndWeight,
       purchase_date: product.purchaseDate,
       status: product.status,
-	  costPrice: product.costPrice
+	  	costPrice: product.costPrice
     });
   }
 
@@ -31,8 +31,57 @@ export class InMemoryProductRepository implements ProductRepository{
 	  const productsData: any = this.products.filter((product: any) => product.restaurant_id === restaurantId);
 	  const products: any = [];
 	  for (const productData of productsData) {
-		products.push(
-		  Product.restore(
+			products.push(
+				Product.restore(
+				productData.id,
+				productData.restaurant_id,
+				productData.stock_id,
+				productData.title,
+				productData.sku,
+				productData.internal_code,
+				productData.description,
+				productData.supplier,
+				productData.uom,
+				productData.expiration_date,
+				productData.dimensions_and_weight,
+				productData.purchase_date,
+				productData.status,
+				productsData.costPrice
+				)
+			);
+	  }
+		return products;
+	}
+
+  async findByStock(stockId: string): Promise<Product[]> {
+	const productsData: any = this.products.filter((product: any) => product.stock_id === stockId);
+	const products: any = [];
+	for (const productData of productsData) {
+	  products.push(
+			Product.restore(
+				productData.id,
+				productData.restaurant_id,
+				productData.stock_id,
+				productData.title,
+				productData.sku,
+				productData.internal_code,
+				productData.description,
+				productData.supplier,
+				productData.uom,
+				productData.expiration_date,
+				productData.dimensions_and_weight,
+				productData.purchase_date,
+				productData.status,
+				productData.costPrice
+			)
+	  );
+	}
+	return products;
+  }
+
+  async find(id: string): Promise<Product> {
+		const productData: any = this.products.filter((product: any) => product.id === id)[0];
+		return Product.restore(
 			productData.id,
 			productData.restaurant_id,
 			productData.stock_id,
@@ -46,81 +95,32 @@ export class InMemoryProductRepository implements ProductRepository{
 			productData.dimensions_and_weight,
 			productData.purchase_date,
 			productData.status,
-			productsData.costPrice
-		  )
+			productData.constPrice
 		);
-	  }
-		return products;
-	}
-
-  async findByStock(stockId: string): Promise<Product[]> {
-	const productsData: any = this.products.filter((product: any) => product.stock_id === stockId);
-	const products: any = [];
-	for (const productData of productsData) {
-	  products.push(
-		Product.restore(
-		  productData.id,
-		  productData.restaurant_id,
-		  productData.stock_id,
-		  productData.title,
-		  productData.sku,
-		  productData.internal_code,
-		  productData.description,
-		  productData.supplier,
-		  productData.uom,
-		  productData.expiration_date,
-		  productData.dimensions_and_weight,
-		  productData.purchase_date,
-		  productData.status,
-		  productData.costPrice
-		)
-	  );
-	}
-	return products;
-  }
-
-  async find(id: string): Promise<Product> {
-	const productData: any = this.products.filter((product: any) => product.id === id)[0];
-	return Product.restore(
-	  productData.id,
-	  productData.restaurant_id,
-	  productData.stock_id,
-	  productData.title,
-	  productData.sku,
-	  productData.internal_code,
-	  productData.description,
-	  productData.supplier,
-	  productData.uom,
-	  productData.expiration_date,
-	  productData.dimensions_and_weight,
-	  productData.purchase_date,
-	  productData.status,
-	  productData.constPrice
-	);
   }
 
   async findAll(): Promise<Product[]> {
-	const products: any = [];
-	for (const productData of this.products) {
-	  products.push(
-		Product.restore(
-		  productData.id,
-		  productData.restaurant_id,
-		  productData.stock_id,
-		  productData.title,
-		  productData.sku,
-		  productData.internal_code,
-		  productData.description,
-		  productData.supplier,
-		  productData.uom,
-		  productData.expiration_date,
-		  productData.dimensions_and_weight,
-		  productData.purchase_date,
-		  productData.status,
-		  productData.costPrice
-		)
-	  );
-	}
+		const products: any = [];
+		for (const productData of this.products) {
+			products.push(
+				Product.restore(
+					productData.id,
+					productData.restaurant_id,
+					productData.stock_id,
+					productData.title,
+					productData.sku,
+					productData.internal_code,
+					productData.description,
+					productData.supplier,
+					productData.uom,
+					productData.expiration_date,
+					productData.dimensions_and_weight,
+					productData.purchase_date,
+					productData.status,
+					productData.costPrice
+				)
+			);
+		}
 	return products;
   }
 }

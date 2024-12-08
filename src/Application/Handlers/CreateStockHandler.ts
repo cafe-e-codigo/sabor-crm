@@ -8,6 +8,6 @@ export class CreateStockHandler implements Handler<CreateStockCommand, void>{
 	}
 
   async handle(command: CreateStockCommand): Promise<void> {
-      await this.createStock.execute(command);
+		await this.createStock.execute(command);
   }
 }
